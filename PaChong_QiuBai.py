@@ -2,6 +2,7 @@
 '''
 @author: Administrator
 @time:2017年5月28日}
+@description:读取糗百text第一页的,用户名,内容
 '''
 # import urllib2
 #  
