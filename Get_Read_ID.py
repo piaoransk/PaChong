@@ -1,7 +1,8 @@
 # -*- coding=utf-8 -*-
 '''
-@author: Administrator
+@author: yuhuiXu
 @time:2017年5月28日
+@description:爬身份证,并且生成excel
 '''
 # import urllib2
 #
