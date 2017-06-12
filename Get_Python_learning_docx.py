@@ -8,6 +8,7 @@
 from bs4 import BeautifulSoup
 import urllib2
 import docx
+import sys,time
 import re
 
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
@@ -34,11 +35,12 @@ list1 = x.find_all('a')
 length=len(list1)#获取长度
 index=1
 url_title='http://www.liaoxuefeng.com'
-for i in range(length):
-    print 'index:',index
+for i in range(1,length+1):
+
+    bili=index/length
 #     print list1[i]
     title=list1[i].string#章节标题
-    print "title: ",title
+    # print "title: ",title
     href = list1[i]['href']
     parent=list1[i].parent
 #     print type(parent)
@@ -51,7 +53,7 @@ for i in range(length):
         document.add_heading(title,1)
     content=get_content(href)
     document.add_paragraph(unicode(content))
-    index+=1
-#     if index==3:break
+    print "progress: %d/%d: %s%s" % (i, length, i*'#', (length-i)*'-')
+    # if i==3:break#调试用
 document.save('demo.docx')
 print 'done'
